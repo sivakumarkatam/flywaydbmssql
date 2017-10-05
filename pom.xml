@@ -17,11 +17,9 @@
 	<build>
 		<plugins>	
 			<plugin>
-
-				<groupId>org.flywaydb</groupId>
-			    <artifactId>flyway-maven-plugin</artifactId>
-			    <version>4.0.3</version>
-
+				<groupId>com.googlecode.flyway</groupId>
+           			 <artifactId>flyway-maven-plugin</artifactId>
+           			 <version>1.6.1</version>
 				<executions>
 				    <execution>
 						<id>first-execution</id>
@@ -34,19 +32,28 @@
 
 				<dependencies>
 					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>6.0.5</version>
+						<groupId>com.microsoft.sqlserver</groupId>
+						<artifactId>mssql-jdbc</artifactId>
+						<version>6.1.0.jre8</version>
+					
 					</dependency>
+		                        <dependency>
+       						 <groupId>com.googlecode.flyway</groupId>
+					         <artifactId>flyway-core</artifactId>
+       						 <version>1.6.1</version>
+   					 </dependency>
+
 				</dependencies>
 				
 				<configuration>
+					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
 					<user>flywaydb</user>
 					<password>flywaydb</password>
-					<url>jdbc:sqlserver://flywaydb.ck1zuoqmhhyf.ap-southeast-1.rds.amazonaws.com:1433;databaseName=flywaydb</url>
-					<locations>
-						<location>filesystem:migrationSqlScripts</location>
-					</locations>
+					<url>jdbc:sqlserver://flywaydb.ck1zuoqmhhyf.ap-southeast-1.rds.amazonaws.com:1433;databaseName=blcl</url>
+				        <locations>
+						<location>filesystem:src/main/resources/db/migration</location>
+					</locations>			
+
 					<skip>false</skip>
 				</configuration>
 
