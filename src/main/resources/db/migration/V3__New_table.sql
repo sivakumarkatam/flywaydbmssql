@@ -5,7 +5,7 @@ CREATE TABLE vegetables (
   PRIMARY KEY (vegtables_id),  
   UNIQUE (vegtables_name)
 )
-INSERT INTO vegtables
+INSERT INTO vegetables
     (vegtables_id, vegtables_name, vegtables_price)
 VALUES 
     (1, "potato", 50),
